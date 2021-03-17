@@ -10,32 +10,34 @@ import ro.ase.cts.clase.Aplicant;
 import ro.ase.cts.clase.Elev;
 
 public class EleviReader extends iReader {
-	
+
 	public EleviReader(String fisier) {
 		super(fisier);
-		// TODO Auto-generated constructor stub
 	}
 
 	public List<Aplicant> readAplicants() throws FileNotFoundException {
-		Scanner input2 = new Scanner(new File(super.fisier));
-		input2.useDelimiter(",|\n");
-		List<Aplicant> elevi = new ArrayList<Aplicant>();
 
-		while (input2.hasNext()) {
+		Scanner elementInitial = new Scanner(new File(super.fisier));
+		elementInitial.useDelimiter(",|\n");
+
+		List<Aplicant> listaElevi = new ArrayList<Aplicant>();
+
+		while (elementInitial.hasNext()) {
 			Elev elev = new Elev();
-			super.citireAplicant(input2, elev);
+			super.citireAplicant(elementInitial, elev);
 			
-			int clasa = input2.nextInt();
-			String tutore = input2.next();
+			int clasaElevului = elementInitial.nextInt();
+			String tutoreElev = elementInitial.next();
 			
-			elev.setClasa(clasa);
-			elev.setTutore(tutore);
+			elev.setClasa(clasaElevului);
+			elev.setTutore(tutoreElev);
 			
-			elevi.add(elev);
+			listaElevi.add(elev);
 
 		}
 
-		input2.close();
-		return elevi;
+		elementInitial.close();
+
+		return listaElevi;
 	}
 }

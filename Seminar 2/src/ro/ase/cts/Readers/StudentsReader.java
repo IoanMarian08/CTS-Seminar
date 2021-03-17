@@ -10,34 +10,30 @@ import ro.ase.cts.clase.Aplicant;
 import ro.ase.cts.clase.Student;
 
 public class StudentsReader extends iReader{
-	
-	
+
 	public StudentsReader(String fisier) {
 		super(fisier);
-		// TODO Auto-generated constructor stub
 	}
 
 	public List<Aplicant> readAplicants() throws FileNotFoundException {
-		Scanner input = new Scanner(new File(super.fisier));
-		input.useDelimiter(",|\n");
-		List<Aplicant> studenti = new ArrayList<Aplicant>();
+		Scanner elementIntrare = new Scanner(new File(super.fisier));
+		elementIntrare.useDelimiter(",|\n");
+		List<Aplicant> listaStudenti = new ArrayList<Aplicant>();
 
-		while (input.hasNext()) {
+		while (elementIntrare.hasNext()) {
 			Student student = new Student();
-				super.citireAplicant(input, student);
+				super.citireAplicant(elementIntrare, student);
 	
-			int an_studii = input.nextInt();
-			String facultate = (input.next()).toString();
+			int anulDeStudiu = elementIntrare.nextInt();
+			String facultateStudentului = (elementIntrare.next());
 			
-			student.setAn_studii(an_studii);
-			student.setFacultate(facultate);
+			student.setAn_studii(anulDeStudiu);
+			student.setFacultate(facultateStudentului);
 		
-			studenti.add(student);
-			
-
-			
+			listaStudenti.add(student);
 		}
-		input.close();
-		return studenti;
+		elementIntrare.close();
+
+		return listaStudenti;
 	}
 }

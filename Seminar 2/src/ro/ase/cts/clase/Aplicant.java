@@ -3,71 +3,56 @@ package ro.ase.cts.clase;
 import java.util.Arrays;
 
 public abstract class Aplicant{
-	protected String nume;
-	protected String prenume;
-	protected int varsta;
-	protected int punctaj;
-	protected int nr_proiecte;
+	protected String numeAplicant;
+	protected String prenumeAplicant;
+	protected int varstaAplicant;
+	protected int punctajAplicant;
+	protected int numarProiecte;
 	protected String[] denumiriProiecte;
 	
-	
-	public String getNume() {
-		return nume;
+
+	public void setNumeAplicant(String numeAplicant) {
+		this.numeAplicant = numeAplicant;
 	}
-	public void setNume(String nume) {
-		this.nume = nume;
+
+	public void setPrenumeAplicant(String prenumeAplicant) {
+		this.prenumeAplicant = prenumeAplicant;
 	}
-	public String getPrenume() {
-		return prenume;
-	}
-	public void setPrenume(String prenume) {
-		this.prenume = prenume;
-	}
-	public int getVarsta() {
-		return varsta;
-	}
-	public void setVarsta(int varsta) {
-		this.varsta = varsta;
+
+	public void setVarstaAplicant(int varstaAplicant) {
+		this.varstaAplicant = varstaAplicant;
 	}
 	
 	public void afisareRaspunsProiect(Proiect proiect){
 		
-		boolean esteAcceptat = punctaj>= proiect.getPragDeAcceptare();
+		boolean esteAcceptat = punctajAplicant >= proiect.getPragDeAcceptare();
 		
-		StringBuilder stringBuilder = new StringBuilder("Aplicantul ").append(nume).append(" ").append(prenume).append(" ");
+		StringBuilder stringBuilder = new StringBuilder("Aplicantul ").append(numeAplicant).append(" ").append(prenumeAplicant).append(" ");
 		stringBuilder.append(esteAcceptat?" a fost acceptat" : " a fost respins.");
 		
 		System.out.println(stringBuilder.toString());
 	}
 	
-	public int getPunctaj() {
-		return punctaj;
-	}
-	
-	public void setPunctaj(int punctaj) {
-		this.punctaj = punctaj;
+	public void setPunctajAplicant(int punctajAplicant) {
+		this.punctajAplicant = punctajAplicant;
 	}
 	
 	public Aplicant() {
 		super();
 	}
 	
-	public Aplicant(String nume, String prenume, int varsta, int punctaj, int nr_proiecte, String[] denumireProiect) {
+	public Aplicant(String nume, String prenume, int varsta, int punctaj, int numarProiecte, String[] denumireProiect) {
 		super();
-		this.nume = nume;
-		this.prenume = prenume;
-		this.varsta = varsta;
-		this.punctaj = punctaj;
-		this.nr_proiecte = nr_proiecte;
+		this.numeAplicant = nume;
+		this.prenumeAplicant = prenume;
+		this.varstaAplicant = varsta;
+		this.punctajAplicant = punctaj;
+		this.numarProiecte = numarProiecte;
 		this.denumiriProiecte = denumireProiect;
 	}
-	
-	public int getNr_proiecte() {
-		return nr_proiecte;
-	}
-	
-	public void setVectorDenumiri(String[] denumiriProiecte, int nr_proiecte) {
-		this.nr_proiecte = nr_proiecte;
+
+	public void setVectorDenumiri(String[] denumiriProiecte, int numarProiecte) {
+		this.numarProiecte = numarProiecte;
 		this.denumiriProiecte=denumiriProiecte;
 	}
 
@@ -75,17 +60,17 @@ public abstract class Aplicant{
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("nume=");
-		builder.append(nume);
-		builder.append(", prenume=");
-		builder.append(prenume);
-		builder.append(", varsta=");
-		builder.append(varsta);
-		builder.append(", punctaj=");
-		builder.append(punctaj);
-		builder.append(", nr_proiecte=");
-		builder.append(nr_proiecte);
-		builder.append(", denumiriProiecte=");
+		builder.append("Nume= ");
+		builder.append(numeAplicant);
+		builder.append(" , prenume= ");
+		builder.append(prenumeAplicant);
+		builder.append(" , varsta= ");
+		builder.append(varstaAplicant);
+		builder.append(" , punctaj= ");
+		builder.append(punctajAplicant);
+		builder.append(" , nr_proiecte= ");
+		builder.append(numarProiecte);
+		builder.append(" , denumiriProiecte= ");
 		builder.append(Arrays.toString(denumiriProiecte));
 		return builder.toString();
 	}
