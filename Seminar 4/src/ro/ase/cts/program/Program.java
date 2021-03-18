@@ -2,6 +2,7 @@ package ro.ase.cts.program;
 
 import ro.ase.cts.clase.Presedinte;
 import ro.ase.cts.clase.PresedinteLazy;
+import ro.ase.cts.clase.TrucMagic;
 
 public class Program {
 
@@ -25,6 +26,24 @@ public class Program {
         //se va apela primul presedinte
         System.out.println(presedinteLazy1);
         System.out.println(presedinteLazy2);
+
+
+        TrucMagic trucMagic1 = TrucMagic.getInstance("taierea in doua",45, 2);
+        TrucMagic trucMagic2 = TrucMagic.getInstance("Iluzia porumbelului", 10, 1);
+
+        System.out.println("\nApeluri clasa trucMagic");
+        System.out.println(trucMagic1.toString());
+        System.out.println(trucMagic2.toString());
+
+        System.out.println("\nSetter pentru primul obiect");
+        trucMagic1.setDurataTruc(20);
+        System.out.println(trucMagic1.toString());
+        System.out.println(trucMagic2.toString());
+
+        System.out.println("\nSetter pentru al doilea obiect");
+        trucMagic2.setNumarMembriExecutanti(3);
+        System.out.println(trucMagic1.toString());
+        System.out.println(trucMagic2.toString());
 
 
     }
