@@ -13,31 +13,25 @@ public class EleviReader extends iReader {
 
 	public EleviReader(String fisier) {
 		super(fisier);
+		// TODO Auto-generated constructor stub
 	}
 
 	public List<Aplicant> readAplicants() throws FileNotFoundException {
+		Scanner scanner = new Scanner(new File(super.fisier));
+		scanner.useDelimiter(",|\n");
+		List<Aplicant> elevi = new ArrayList<Aplicant>();
 
-		Scanner elementInitial = new Scanner(new File(super.fisier));
-		elementInitial.useDelimiter(",|\n");
-
-		List<Aplicant> listaElevi = new ArrayList<Aplicant>();
-
-		while (elementInitial.hasNext()) {
+		while (scanner.hasNext()) {
 			Elev elev = new Elev();
-			super.citireAplicant(elementInitial, elev);
-			
-			int clasaElevului = elementInitial.nextInt();
-			String tutoreElev = elementInitial.next();
-			
-			elev.setClasa(clasaElevului);
-			elev.setTutore(tutoreElev);
-			
-			listaElevi.add(elev);
-
+			super.citireAplicant(scanner, elev);
+			int clasa = scanner.nextInt();
+			String tutore = scanner.next();
+			elev.setClasaElevului(clasa);
+			elev.setTutoreElev(tutore);
+			elevi.add(elev);
 		}
 
-		elementInitial.close();
-
-		return listaElevi;
+		scanner.close();
+		return elevi;
 	}
 }

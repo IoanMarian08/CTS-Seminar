@@ -17,11 +17,11 @@ public class Angajat extends Aplicant{
 	}
 
 	public void setOcupatie(String ocupatie) {
-		this.ocupatie = ocupatie;
+		this.ocupatieAngajat = ocupatie;
 	}
 
 	public void setSalariu(int salariu) {
-		this.salariu = salariu;
+		this.salariuAngajat = salariu;
 	}
 
 	public Angajat() {
@@ -32,7 +32,7 @@ public class Angajat extends Aplicant{
 	@Override
 	public String toString() {
 		StringBuilder stringBuilder = new StringBuilder();
-		stringBuilder.append("Angajat: ").append(super.toString()).append("Ocupatie= ").append(ocupatie).append("Salariu= ").append(salariu);
+		stringBuilder.append("Angajat: ").append(super.toString()).append("Ocupatie= ").append(ocupatieAngajat).append("Salariu= ").append(salariuAngajat);
 		return stringBuilder.toString();
 	}
 

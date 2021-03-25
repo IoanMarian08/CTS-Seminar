@@ -25,10 +25,10 @@ public class StudentsReader extends iReader{
 				super.citireAplicant(elementIntrare, student);
 	
 			int anulDeStudiu = elementIntrare.nextInt();
-			String facultateStudentului = (elementIntrare.next());
+			String facultateaStudentului = (elementIntrare.next());
 			
-			student.setAn_studii(anulDeStudiu);
-			student.setFacultate(facultateStudentului);
+			student.setAnulDeStudiu(anulDeStudiu);
+			student.setFacultateaStudentului(facultateaStudentului);
 		
 			listaStudenti.add(student);
 		}

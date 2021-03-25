@@ -26,10 +26,10 @@ public abstract class iReader {
 		String[] vectorDenumiriProiecte = new String[numarProiecte];
 		for (int i = 0; i < numarProiecte; i++)
 			vectorDenumiriProiecte[i] = elementIntrare.next();
-		aplicant.setNume(numeAplicant);
-		aplicant.setPrenume(prenumeAplicant);
-		aplicant.setVarsta(varstaAplicant);
-		aplicant.setPunctaj(punctajAplicant);
+		aplicant.setNumeAplicant(numeAplicant);
+		aplicant.setPrenumeAplicant(prenumeAplicant);
+		aplicant.setVarstaAplicant(varstaAplicant);
+		aplicant.setPunctajAplicant(punctajAplicant);
 		aplicant.setVectorDenumiri(vectorDenumiriProiecte, numarProiecte);
 	}
 	
