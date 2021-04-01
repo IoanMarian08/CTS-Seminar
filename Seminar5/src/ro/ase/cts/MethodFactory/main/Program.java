@@ -14,7 +14,7 @@ public class Program {
 	}
 
 	public static void main(String[] args) {
-		afisareInformatiiPersonalSpital(new FactoryAsistent(),"Mircea");
+		afisareInformatiiPersonalSpital(new FactoryAsistent(),"Andrei");
 		afisareInformatiiPersonalSpital(new FactoryBrancardier(),"Mihai");
 		afisareInformatiiPersonalSpital(new FactoryInfirmier(), "Raluca");
 	}
