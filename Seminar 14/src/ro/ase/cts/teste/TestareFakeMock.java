@@ -3,7 +3,10 @@ package ro.ase.cts.teste;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
+import ro.ase.cts.Categorii.GetPromovabilitateCategory;
+import ro.ase.cts.Categorii.TesteUrgente;
 import ro.ase.cts.clase.Grupa;
 import ro.ase.cts.teste.Mocks.FakeStudent;
 
@@ -11,6 +14,7 @@ public class TestareFakeMock {
 
 	//teste de RIGHT
 	@Test
+	@Category({GetPromovabilitateCategory.class, TesteUrgente.class})
 	public void testGetPromovabilitateFake() {
 		Grupa grupa = new Grupa(1051);
 		for(int i=0; i<8; i++) {

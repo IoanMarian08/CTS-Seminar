@@ -3,7 +3,10 @@ package ro.ase.cts.teste;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
+import ro.ase.cts.Categorii.ConstructorGrupaCategory;
+import ro.ase.cts.Categorii.GetPromovabilitateCategory;
 import ro.ase.cts.clase.Grupa;
 import ro.ase.cts.clase.IStudent;
 import ro.ase.cts.clase.Student;
@@ -13,6 +16,7 @@ public class TesteGrupa {
 
 	//Right 
 	@Test
+	@Category(ConstructorGrupaCategory.class)
 	public void testConstructorNumarGrupaCorect() {
 		Grupa grupa = new Grupa(1081);
 		assertEquals(1081, grupa.getNrGrupa());
@@ -20,6 +24,7 @@ public class TesteGrupa {
 	
 	//testExistaLista
 	@Test
+	@Category(ConstructorGrupaCategory.class)
 	public void testConstructorDeExistance() {
 		Grupa grupa = new Grupa(1081);
 		assertNotNull(grupa.getStudenti());
@@ -28,12 +33,14 @@ public class TesteGrupa {
 	
 	//B-Boundary
 	@Test
+	@Category(ConstructorGrupaCategory.class)
 	public void testConstructorLimitaInferioara() {
 		Grupa grupa = new Grupa(1000);
 		assertEquals(1000, grupa.getNrGrupa());
 	}
 	
 	@Test
+	@Category(ConstructorGrupaCategory.class)
 	public void testConstructorLimitaSuperioara() {
 		Grupa grupa = new Grupa(1100);
 		assertEquals(1100, grupa.getNrGrupa());
@@ -43,11 +50,13 @@ public class TesteGrupa {
 	
 	//verific daca constr arunca o exceptie cand ii dau o conditie gresita
 	@Test(expected = IllegalArgumentException.class)
+	@Category(ConstructorGrupaCategory.class)
 	public void testExceptieConstructorInferior() {
 		Grupa grupa = new Grupa(900);
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
+	@Category(ConstructorGrupaCategory.class)
 	public void testExceptieConstructorSuperior() {
 		Grupa grupa = new Grupa(1200);
 	}
@@ -55,6 +64,7 @@ public class TesteGrupa {
 	
 	//P - performance . Ex: verific daca un obiect de tipul Grupa e creat in timp util
 	@Test(timeout = 500)
+	@Category(ConstructorGrupaCategory.class)
 	public void testConstructorPerformance() {
 		Grupa grupa = new Grupa(1081);
 	}
@@ -83,6 +93,7 @@ public class TesteGrupa {
 	
 	//right
 	@Test
+	@Category(GetPromovabilitateCategory.class)
 	public void testGetPromovabilitate() {
 		Grupa grupa = new Grupa(1081);
 		for(int i=0;i<10;i++) { // am adaugat 10 studenti care nu au restanta
@@ -104,6 +115,7 @@ public class TesteGrupa {
 	
 	//B - boundary
 	@Test
+	@Category(GetPromovabilitateCategory.class)
 	public void testPromovabilitateLimitaInferioara() {
 		Grupa grupa = new Grupa(1001);
 		for(int i=0;i<5;i++) {
@@ -117,6 +129,7 @@ public class TesteGrupa {
 	}
 	
 	@Test
+	@Category(GetPromovabilitateCategory.class)
 	public void testPromovabilitateLimitaSuperioara() {
 		Grupa grupa = new Grupa(1081);
 		for(int i=0;i<5;i++) {
@@ -136,6 +149,7 @@ public class TesteGrupa {
 	
 	// E 
 	@Test(expected = IndexOutOfBoundsException.class)
+	@Category(GetPromovabilitateCategory.class)
 	public void testPromovabilitateErrorCondition() {
 		Grupa grupa = new Grupa(1050);
 		grupa.getPromovabilitate();
@@ -177,6 +191,7 @@ public class TesteGrupa {
 	
 	// C 
 	@Test
+	@Category(GetPromovabilitateCategory.class)
 	public void testGetPromovabilitateCadinality1() {
 		Grupa grupa = new Grupa(1081);
 		IStudent student = new Student();
